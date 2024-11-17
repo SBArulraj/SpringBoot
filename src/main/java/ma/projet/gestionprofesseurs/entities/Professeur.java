@@ -18,19 +18,22 @@ public class Professeur {
     @Temporal(TemporalType.DATE)
     private Date dateEmbauche;
 
-    @ManyToOne
-    private Specialite specialite;
+    /*@ManyToOne
+    private Specialite specialite;*/
 
     public Professeur() {
     }
 
-    public Professeur(String nom, String prenom, String telephone, String email, Date dateEmbauche, Specialite specialite) {
+    public Professeur(String nom, String prenom, String telephone, String email,
+                      Date dateEmbauche
+            //, Specialite specialite
+    ) {
         this.nom = nom;
         this.prenom = prenom;
         this.telephone = telephone;
         this.email = email;
         this.dateEmbauche = dateEmbauche;
-        this.specialite = specialite;
+     //   this.specialite = specialite;
     }
 
     public int getId() {
@@ -81,11 +84,11 @@ public class Professeur {
         this.dateEmbauche = dateEmbauche;
     }
 
-    public Specialite getSpecialite() {
+    /*public Specialite getSpecialite() {
         return specialite;
     }
 
     public void setSpecialite(Specialite specialite) {
         this.specialite = specialite;
-    }
+    }*/
 }
