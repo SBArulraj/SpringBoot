@@ -3,7 +3,9 @@ package ma.projet.gestionprofesseurs.controllers;
 
 import ma.projet.gestionprofesseurs.entities.Professeur;
 import ma.projet.gestionprofesseurs.entities.Specialite;
+import ma.projet.gestionprofesseurs.entities.Student;
 import ma.projet.gestionprofesseurs.repository.SpecialiteRepository;
+import ma.projet.gestionprofesseurs.repository.StudentRepository;
 import ma.projet.gestionprofesseurs.services.ProfesseurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -17,10 +19,20 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/professeur")
 public class ProfesseurController {
+
     @Autowired
     private ProfesseurService professeurService;
+
+    /*@Autowired
+    private SpecialiteRepository specialiteRepository;*/
+
     @Autowired
-    private SpecialiteRepository specialiteRepository;
+    private StudentRepository studentRepository;
+
+    @PostMapping("/student")
+    public Student createStudent(@RequestBody Student student) {
+        return studentRepository.save(student);
+    }
 
     @GetMapping
     public List<Professeur> findAllProfesseur() {
